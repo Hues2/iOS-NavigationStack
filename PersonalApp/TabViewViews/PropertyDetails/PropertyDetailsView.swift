@@ -16,7 +16,11 @@ struct PropertyDetailsView: View {
     }
     
     var body: some View {
-        Text("\(vm.property?.name ?? "NO PORPERTY FOUND WITH THAT ID")")
+        VStack {
+            Text("\(vm.property?.name ?? "NO PORPERTY FOUND WITH THAT ID")")
+        }
+        .navigationTitle("\(vm.property?.name ?? "Unknown")")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

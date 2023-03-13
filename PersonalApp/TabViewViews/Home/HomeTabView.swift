@@ -16,20 +16,22 @@ struct HomeTabView: View {
     }
     
     var body: some View {
-        Text("HOME TAB")
-        
-        List {
-            ForEach(Array(zip(vm.listOfProperties.indices, vm.listOfProperties)), id: \.0) { (index, property) in
-                NavigationLink(value: HomeNavigationViewModel.HomePath.propertyDetail(property.id)) {
-                    HStack{
-                        Text("\(property.name)")
-                        Spacer()
-                        Text("\(index + 1)")
+        VStack {            
+            List {
+                ForEach(Array(zip(vm.listOfProperties.indices, vm.listOfProperties)), id: \.0) { (index, property) in
+                    NavigationLink(value: HomeNavigationViewModel.HomePath.propertyDetail(property.id)) {
+                        HStack{
+                            Text("\(property.name)")
+                            Spacer()
+                            Text("\(index + 1)")
+                        }
                     }
+                    
                 }
-                
             }
         }
+        .navigationTitle("Home")
+        .navigationBarTitleDisplayMode(.inline)
 
     }
 }

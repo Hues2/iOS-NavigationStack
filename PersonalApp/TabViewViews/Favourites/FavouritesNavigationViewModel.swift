@@ -15,7 +15,7 @@ class FavouritesNavigationViewModel : ObservableObject {
     
     enum FavouritesPath : Hashable{
         case favourites
-//        case detail(String)
+        case detail(UUID)
     }
     
 }

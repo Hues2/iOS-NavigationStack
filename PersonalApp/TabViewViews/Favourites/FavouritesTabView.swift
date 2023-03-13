@@ -16,7 +16,23 @@ struct FavouritesTabView: View {
     }
     
     var body: some View {
-        Text("FAVOURITES TAB")
-
+        VStack {
+            List{
+                ForEach(Array(zip(favouritesVM.favouriteProperties.indices, favouritesVM.favouriteProperties)), id: \.0) { (index, property) in
+                    
+                    NavigationLink(value: FavouritesNavigationViewModel.FavouritesPath.detail(property.id)) {
+                        HStack {
+                            Text("\(property.name)")
+                            Spacer()
+                            Text("\(index + 1)")
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .navigationTitle("Favourites")
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
 }

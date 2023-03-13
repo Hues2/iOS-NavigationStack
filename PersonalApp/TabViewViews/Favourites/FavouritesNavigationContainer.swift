@@ -19,6 +19,9 @@ struct FavouritesNavigationContainer: View {
                     case .favourites:
                         FavouritesTabView(favouritesNavVM)
                         
+                    case .detail(let id):
+                        PropertyDetailsView(id)
+                        
                     }
                     
                 }
